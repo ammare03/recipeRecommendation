@@ -1,3 +1,7 @@
+<?php
+session_start(); // Start the session
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +27,15 @@
         </div>
         <div class="nav-right">
             <a href="index.php" class="active">Home</a>
-            <a href="login.php">Login</a>
+            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']): ?>
+                <a href="logout.php">Logout</a>
+            <?php else: ?>
+                <a href="login.php">Login</a>
+            <?php endif; ?>
             <a href="contact.php">Contact Us</a>
         </div>
     </nav>
+
 
     <!-- Main Content -->
     <main>
