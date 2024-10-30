@@ -1,18 +1,13 @@
 <?php
-session_start(); // Start the session
+session_start();
+$message = '';
 
-// Check if the user is already logged in
-if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) {
-    header("Location: index.php"); // Redirect to index if already logged in
-    exit();
-}
-
-// Database connection
+// Database configuration
 $host = 'localhost';
-$db = 'recipe_finder'; // Replace with your database name
-$user = 'root'; // Replace with your database username
-$pass = ''; // Replace with your database password
-$port = 3309; // Your new port number
+$port = 3309;
+$db = 'recipe_finder';
+$user = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db, $port);
 
@@ -21,16 +16,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$message = '';
+$emailPattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate user input
+    // Validate email and password input
     if (empty($email) || empty($password)) {
         $message = 'Please fill in all fields.';
+    } elseif (!preg_match($emailPattern, $email)) {
+        $message = 'Invalid email format.';
     } else {
-        // Prepare and bind
         $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -39,9 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->num_rows == 1) {
             $stmt->bind_result($user_id, $hashed_password);
             $stmt->fetch();
+
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['user_id'] = $user_id;
-                $_SESSION['user_logged_in'] = true; // Set this variable to indicate user is logged in
+                $_SESSION['user_logged_in'] = true;
                 header("Location: index.php");
                 exit();
             } else {
@@ -53,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
     }
 }
+
 $conn->close();
 ?>
 
@@ -74,12 +73,7 @@ $conn->close();
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
-            <h1>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-                Recipe Finder
-            </h1>
+            <h1>Recipe Finder</h1>
         </div>
         <div class="nav-right">
             <a href="index.php">Home</a>
@@ -92,29 +86,24 @@ $conn->close();
     <main>
         <section class="login-container container">
             <h2>Login</h2>
-            <form method="POST" id="loginForm">
+            <form method="POST" id="loginForm" novalidate>
                 <div class="input-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email">
                 </div>
                 <div class="input-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password">
                 </div>
                 <button type="submit" class="login-btn">Login</button>
                 <p class="message"><?php echo $message; ?></p>
-                <p>Don't have an account? <a href="register.php">Register here</a></p>
+                <p class="register-message">Don't have an account? <a href="register.php">Register here</a></p>
             </form>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="social-media">
-            <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
-            <a href="#"><img src="./res/svg/twitter.svg" alt="Twitter"></a>
-            <a href="#"><img src="./res/svg/pinterest.svg" alt="Pinterest"></a>
-        </div>
         <p>&copy; 2023 Recipe Finder. All Rights Reserved.</p>
     </footer>
 

@@ -1,8 +1,8 @@
 /* Theme Colors */
 :root {
-    --background-color: black; /* Background Color */
-    --primary-color: #8B9A46; /* Accent Color */
-    --text-color: #EEEEEE; /* Text Color */
+    --background-color: black;     /* Background Color */
+    --primary-color: #8B9A46;     /* Accent Color for Navbar, Footer, Buttons */
+    --text-color: #EEEEEE;         /* Text Color */
 }
 
 /* Reset default styling */
@@ -77,6 +77,7 @@ main {
 
 /* Heading styles */
 .login-container h2 {
+    font-size: 28px; /* Consistent heading size */
     margin-bottom: 20px; /* Space below heading */
     color: var(--text-color);
 }
@@ -90,6 +91,7 @@ main {
 .input-group label {
     display: block; /* Display as block for full width */
     margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
     color: var(--text-color); /* Ensures labels are legible */
 }
 
@@ -129,6 +131,20 @@ main {
 .message {
     color: red; /* Error message color */
     margin: 10px 0; /* Space around message */
+}
+
+.register-message {
+    color: #8B9A46;
+}
+
+/* Link styling */
+a {
+    color: var(--primary-color); /* Primary color for links */
+    text-decoration: none; /* No underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
 }
 
 /* Footer styling */
