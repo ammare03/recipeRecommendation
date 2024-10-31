@@ -86,7 +86,7 @@ session_start(); // Start the session
             <a href="#"><img src="./res/svg/twitter.svg" alt="Twitter"></a>
             <a href="#"><img src="./res/svg/pinterest.svg" alt="Pinterest"></a>
         </div>
-        <p>&copy; 2023 Recipe Finder. All Rights Reserved.</p>
+        <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
 
 </body>

@@ -79,11 +79,16 @@ $conn->close();
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
-            <h1>Recipe Finder</h1>
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+                Recipe Finder
+            </h1>
         </div>
         <div class="nav-right">
             <a href="index.php">Home</a>
-            <a href="register.php" class="active">Register</a>
+            <a href="login.php" class="active">Login</a>
             <a href="contact.php">Contact Us</a>
         </div>
     </nav>
@@ -109,7 +114,12 @@ $conn->close();
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Recipe Finder. All Rights Reserved.</p>
+        <div class="social-media">
+            <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="./res/svg/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="./res/svg/pinterest.svg" alt="Pinterest"></a>
+        </div>
+        <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
 </body>
 </html>

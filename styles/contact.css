@@ -1,7 +1,7 @@
 /* Theme Colors */
 :root {
     --background-color: black;     /* Background Color */
-    --primary-color: #8B9A46;     /* Accent Color for Navbar, Footer, Buttons */
+    --primary-color: #3C3D37;     /* Accent Color for Navbar, Footer, Buttons */
     --text-color: #EEEEEE;         /* Text Color */
 }
 
@@ -21,6 +21,15 @@ body {
     flex-direction: column;
 }
 
+/* Container styling */
+.container {
+    margin: 40px 20px;
+    padding: 20px;
+    /* background-color: rgb(0, 0, 0); */
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgb(0, 0, 0); */
+}
+
 /* Navbar styling */
 .navbar {
     display: flex;
@@ -28,7 +37,7 @@ body {
     align-items: center;
     padding: 25px 30px;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--background-color);
     height: 120px; /* Increased height */
 }
 
@@ -36,21 +45,22 @@ body {
     font-size: 28px; /* Desired size */
     font-weight: bold; /* Bold title */
     margin: 0; /* Remove default margin */
-    color: var(--text-color); /* Ensure color is set */
+    color: var(--background-color); /* Ensure color is set */
 }
 
 .nav-right a {
-    color: var(--text-color);
+    color: var(--background-color);
     text-decoration: none;
     margin-left: 25px;
     font-size: 20px; /* Font size for navbar links */
     font-weight: bold; /* Bold navbar links */
     position: relative;
-    transition: color 0.3s; /* Transition for hover effect */
+    transition: font-size 0.3s; /* Transition for hover effect */
+    /* transition: transform 0.3s; */
 }
 
 .nav-right a:hover {
-    color: #000000; /* Change color on hover */
+    font-size: 22px;
 }
 
 .nav-right a.active {
@@ -59,18 +69,13 @@ body {
 
 /* Main content */
 main {
-    padding: 60px 30px;
+    padding: 60px 0 30px; /* Remove right padding */
     text-align: center;
     flex-grow: 1; /* Allows main to expand */
-}
-
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #000;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-image: url("background.avif");
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center right; /* Aligns the image to the right */
 }
 
 .contact-container h2 {
@@ -87,7 +92,7 @@ main {
 .contact-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -95,7 +100,7 @@ main {
 }
 
 .contact-btn:hover {
-    background-color: #218838;
+    background-color: #30302C;
 }
 
 /* Footer styling */
@@ -103,7 +108,7 @@ footer {
     text-align: center;
     padding: 30px 0;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--background-color);
     font-size: 18px;
     height: 120px; /* Maintained height */
 }
