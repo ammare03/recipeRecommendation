@@ -1,0 +1,167 @@
+/* Theme Colors */
+:root {
+    --background-color: black;       /* Background Color */
+    --primary-color: #3C3D37;        /* Accent Color for Navbar, Footer, Buttons */
+    --text-color: #EEEEEE;           /* Text Color */
+}
+
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Set global font family */
+}
+
+/* Body and minimum height */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    height: 120px; /* Increased height */
+}
+
+.navbar .nav-left h1 {
+    font-size: 28px; /* Desired size */
+    font-weight: bold; /* Bold title */
+    margin: 0; /* Remove default margin */
+    color: var(--background-color);
+}
+
+.nav-right a {
+    color: var(--background-color); /* Navbar link color */
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 20px; /* Font size for navbar links */
+    font-weight: bold; /* Bold navbar links */
+    position: relative;
+    transition: font-size 0.3s; /* Transition for hover effect */
+}
+
+.nav-right a:hover {
+    font-size: 22px;
+}
+
+.nav-right a.active {
+    border-bottom: 3px solid var(--text-color); /* Underline for active link */
+}
+
+/* Main section background and container styling */
+.tips-section {
+    background-image: url('./background.avif'); /* Add a background image here */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.tips-container h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-color); /* Heading color */
+    margin-bottom: 10px;
+}
+
+.tips-container p {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--text-color); /* Paragraph color */
+}
+
+/* Tips card grid styling */
+.tips-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual tip card styles */
+.tip-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+    display: flex; /* Ensures the card content is aligned */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+}
+
+.tip-card:hover {
+    transform: scale(1.05);
+}
+
+.tip-front, .tip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    padding: 15px;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.tip-front {
+    background-color: var(--primary-color); /* Front card color */
+    color: var(--background-color); /* Front card text color */
+    border-radius: 8px 8px 0 0;
+}
+
+.tip-back {
+    background-color: var(--background-color); /* Back card color */
+    color: var(--text-color); /* Back card text color */
+    transform: rotateY(180deg);
+    font-size: 0.95em;
+}
+
+.tip-card:hover .tip-front {
+    transform: rotateY(180deg);
+}
+
+.tip-card:hover .tip-back {
+    transform: rotateY(0deg);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: var(--primary-color); /* Footer background */
+    color: var(--background-color); /* Footer text color */
+    font-size: 18px;
+    height: 120px; /* Maintained height */
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 30px; /* Placeholder size */
+    height: auto;
+}

@@ -45,6 +45,7 @@ session_start(); // Start the session
             <p>Your go-to solution for discovering and sharing the best recipes based on your preferences and available ingredients. Explore, create, and share recipes with ease!</p>
             <p>With a user-friendly interface and a rich database of culinary delights, you'll never run out of ideas for your next meal. Whether you're a beginner or a seasoned chef, Recipe Finder is here to inspire your culinary journey.</p>
             <a href="recipes.php" class="explore-btn">Explore Recipes</a>
+            <a href="tips.php" class="tips-btn">Cooking Tips</a>
         </section>
 
         <!-- Features Section -->

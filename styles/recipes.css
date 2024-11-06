@@ -128,6 +128,17 @@ main {
     color: var(--text-color); /* Recipe item text color */
 }
 
+.download-recipe-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Make the button a block element */
+    margin: 15px auto 0; /* Center the button and add margin to the top */
+}
+
 /* Footer styling */
 footer {
     text-align: center;

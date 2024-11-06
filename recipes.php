@@ -51,7 +51,7 @@ session_start(); // Start the session
         <section class="results container">
             <h3>Available Recipes</h3>
             <div id="recipeResults">
-                <!-- Dynamic recipe results will be inserted here -->
+                <!-- Dynamic recipe results and download button will be inserted here -->
             </div>
         </section>
     </main>
@@ -75,6 +75,27 @@ session_start(); // Start the session
                     $('#recipeResults').html('<p>An error occurred while fetching recipes.</p>');
                 }
             });
+        });
+
+        $(document).on('click', '.download-recipe-btn', function() {
+            const recipeName = $(this).data('name');
+            const instructions = $(this).data('instructions');
+            const cookingTime = $(this).data('cooking-time');
+            const servings = $(this).data('servings');
+            
+            // Format the content for the text file
+            const textContent = `Recipe: ${recipeName}\n\nInstructions: ${instructions}\n\nCooking Time: ${cookingTime} minutes\nServings: ${servings}`;
+
+            // Create a Blob from the text content
+            const blob = new Blob([textContent], { type: 'text/plain' });
+
+            // Create a download link
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `${recipeName}.txt`; // Set filename as recipe name
+
+            // Trigger the download
+            downloadLink.click();
         });
     });
     </script>

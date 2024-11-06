@@ -49,11 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ingredients'])) {
     // Prepare the response in HTML format
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $recipeName = htmlspecialchars($row['name']);
+            $instructions = htmlspecialchars($row['instructions']);
+            $cookingTime = htmlspecialchars($row['cooking_time']);
+            $servings = htmlspecialchars($row['servings']);
+            
             echo '<div class="recipe-item">';
-            echo '<h4>' . htmlspecialchars($row['name']) . '</h4>';
-            echo '<p>' . htmlspecialchars($row['instructions']) . '</p>';
-            echo '<p><strong>Cooking Time:</strong> ' . htmlspecialchars($row['cooking_time']) . ' minutes</p>';
-            echo '<p><strong>Servings:</strong> ' . htmlspecialchars($row['servings']) . '</p>';
+            echo "<h4>$recipeName</h4>";
+            echo "<p>$instructions</p>";
+            echo "<p><strong>Cooking Time:</strong> $cookingTime minutes</p>";
+            echo "<p><strong>Servings:</strong> $servings</p>";
+            
+            // Button with data attributes for JavaScript
+            echo "<button class='download-recipe-btn' data-name='$recipeName' data-instructions='$instructions' data-cooking-time='$cookingTime' data-servings='$servings'>Download $recipeName</button>";
             echo '</div>';
         }
     } else {
