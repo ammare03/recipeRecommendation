@@ -90,7 +90,7 @@ session_start(); // Start the session
                     <img src="./res/images/mikeT.jpg" class="card-img-top" alt="User Image">
                     <div class="card-body">
                         <h5 class="card-title">Mike T.</h5>
-                        <p class="card-text">"I love the personalized suggestions. It feels like the app knows my taste!"</p>
+                        <p class="card-text">"The Cooking Tips have helped me boost my skills tremendously!"</p>
                     </div>
                 </div>
                 <div class="card">

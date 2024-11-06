@@ -106,7 +106,7 @@ input[type="password"] {
     padding: 10px; /* Padding inside input */
     border-radius: 8px; /* Rounded corners */
     border: 3px solid black; /* Green border */
-    color: var(--text-color); /* Text color */
+    color: var(--background-color); /* Text color */
     font-weight: bold; /* Make text bold */
     margin-bottom: 15px;
 }

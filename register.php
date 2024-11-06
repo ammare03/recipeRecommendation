@@ -88,7 +88,7 @@ $conn->close();
         </div>
         <div class="nav-right">
             <a href="index.php">Home</a>
-            <a href="login.php" class="active">Login</a>
+            <a href="register.php" class="active">Register</a>
             <a href="contact.php">Contact Us</a>
         </div>
     </nav>
