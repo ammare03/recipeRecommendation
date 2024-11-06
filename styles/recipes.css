@@ -127,6 +127,31 @@ main {
     transform: translateY(20px); /* Slightly offset initially */
 }
 
+/* Page Load Animation */
+@keyframes fadeInElements {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends in normal position */
+    }
+}
+
+/* Initially hidden state for the login container */
+.explore-recipes {
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(20px); /* Starts from below */
+    animation: fadeInElements 1s ease-out forwards; /* Apply the fadeInUp animation */
+}
+
+/* Ensure the form is visible after animation */
+.explore-recipes.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Fade-in and move-up animation */
 @keyframes fadeInUp {
     0% {

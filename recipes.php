@@ -58,6 +58,8 @@ session_start(); // Start the session
 
     <script>
     $(document).ready(function() {
+        // Add the 'visible' class after page load to trigger the animation
+        $('.explore-recipes').addClass('visible');
         $('#ingredientForm').on('submit', function(e) {
             e.preventDefault(); // Prevent the default form submission
             

@@ -121,5 +121,12 @@ $conn->close();
         </div>
         <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Add the 'visible' class after page load to trigger the animation
+            $('.register-container').addClass('visible');
+        });
+    </script>
 </body>
 </html>

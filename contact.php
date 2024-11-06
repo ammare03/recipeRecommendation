@@ -58,5 +58,12 @@ $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
         </div>
         <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Add the 'visible' class after page load to trigger the animation
+            $('.contact-container').addClass('visible');
+        });
+    </script>
 </body>
 </html>

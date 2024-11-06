@@ -69,6 +69,30 @@ main {
     border-bottom: 3px solid #000000; /* Underline for active link */
 }
 
+/* General Fade-In and Move-Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation when the class is added dynamically */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+.animate-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0); /* End position */
+}
+
 
 
 /* Intro section styling */

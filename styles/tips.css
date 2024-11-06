@@ -58,6 +58,39 @@ body {
     border-bottom: 3px solid var(--text-color); /* Underline for active link */
 }
 
+/* Page Load Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends in normal position */
+    }
+}
+
+/* Initially hidden state for the login container */
+.tips-container {
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(20px); /* Starts from below */
+    animation: fadeInUp 1s ease-out forwards; /* Apply the fadeInUp animation */
+}
+
+/* Ensure the form is visible after animation */
+.tips-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.login-container {
+    margin: 5px auto; /* Centered with auto margins */
+    max-width: 400px; /* Fixed max-width for the form */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center; /* Center the text */
+}
 /* Main section background and container styling */
 .tips-section {
     background-image: url('./background.avif'); /* Add a background image here */

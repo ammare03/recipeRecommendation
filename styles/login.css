@@ -70,9 +70,35 @@ main {
     border-bottom: 3px solid #000000; /* Underline for active link */
 }
 
+/* Page Load Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends in normal position */
+    }
+}
+
+/* Initially hidden state for the login container */
+.login-container {
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(20px); /* Starts from below */
+    animation: fadeInUp 1s ease-out forwards; /* Apply the fadeInUp animation */
+}
+
+/* Ensure the form is visible after animation */
+.login-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Login container */
 .login-container {
-    margin: 40px auto; /* Centered with auto margins */
+    margin: 5px auto; /* Centered with auto margins */
     max-width: 400px; /* Fixed max-width for the form */
     padding: 20px;
     border-radius: 8px;

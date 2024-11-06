@@ -21,15 +21,6 @@ body {
     flex-direction: column;
 }
 
-/* Container styling */
-.container {
-    margin: 40px 20px;
-    padding: 20px;
-    /* background-color: rgb(0, 0, 0); */
-    border-radius: 8px;
-    /* box-shadow: 0 2px 10px rgb(0, 0, 0); */
-}
-
 /* Navbar styling */
 .navbar {
     display: flex;
@@ -67,6 +58,31 @@ body {
     border-bottom: 3px solid #000000; /* Underline for active link */
 }
 
+/* Page Load Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends in normal position */
+    }
+}
+
+/* Initially hidden state for the login container */
+.contact-container {
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(20px); /* Starts from below */
+    animation: fadeInUp 1s ease-out forwards; /* Apply the fadeInUp animation */
+}
+
+/* Ensure the form is visible after animation */
+.contact-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Main content */
 main {
     padding: 60px 0 30px; /* Remove right padding */
@@ -76,6 +92,15 @@ main {
     background-size: cover; /* Ensures the image covers the entire section */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center right; /* Aligns the image to the right */
+}
+
+/* Container styling */
+.contact-container {
+    margin: 40px 20px;
+    padding: 20px;
+    /* background-color: rgb(0, 0, 0); */
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgb(0, 0, 0); */
 }
 
 .contact-container h2 {
