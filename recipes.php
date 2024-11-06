@@ -48,7 +48,7 @@ session_start(); // Start the session
             </form>
         </section>
         
-        <section class="results container">
+        <section class="results container" id="results">
             <h3>Available Recipes</h3>
             <div id="recipeResults">
                 <!-- Dynamic recipe results and download button will be inserted here -->
@@ -70,6 +70,19 @@ session_start(); // Start the session
                 data: { ingredients: ingredients }, // Send the ingredients
                 success: function(response) {
                     $('#recipeResults').html(response); // Update the recipe results
+
+                    // Smooth scroll to the recipe results section
+                    $('html, body').animate({
+                        scrollTop: $('#results').offset().top
+                    }, 1000); // 1000ms for smooth scroll
+
+                    // Wait for the scroll to complete before triggering the recipe animation
+                    setTimeout(function() {
+                        // Once the page scrolls to the recipes section, apply animation
+                        $('.recipe-item').each(function(index) {
+                            $(this).addClass('loaded');
+                        });
+                    }, 400); // Wait for 1 second before applying the animation (to match the scroll time)
                 },
                 error: function() {
                     $('#recipeResults').html('<p>An error occurred while fetching recipes.</p>');
