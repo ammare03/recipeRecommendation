@@ -120,6 +120,15 @@ main {
     background-color: #30302C; /* Change on hover */
 }
 
+/* Update the disabled class styling */
+.explore-btn.disabled, .tips-btn.disabled {
+    opacity: 0.7;
+}
+
+.explore-btn.disabled:hover, .tips-btn.disabled:hover {
+    background-color: var(--primary-color);
+}
+
 /* Features section */
 .features {
     display: flex;

@@ -44,8 +44,16 @@ session_start(); // Start the session
             <h2>Welcome to Recipe Finder</h2>
             <p>Your go-to solution for discovering and sharing the best recipes based on your preferences and available ingredients. Explore, create, and share recipes with ease!</p>
             <p>With a user-friendly interface and a rich database of culinary delights, you'll never run out of ideas for your next meal. Whether you're a beginner or a seasoned chef, Recipe Finder is here to inspire your culinary journey.</p>
-            <a href="recipes.php" class="explore-btn">Explore Recipes</a>
-            <a href="tips.php" class="tips-btn">Cooking Tips</a>
+
+            <!-- Updated buttons with both PHP and JavaScript -->
+            <a href="recipes.php" class="explore-btn <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? '' : 'disabled'; ?>" 
+                onclick="handleLoginClick(event, <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? 'true' : 'false'; ?>)">
+                    Explore Recipes
+            </a>
+            <a href="tips.php" class="tips-btn <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? '' : 'disabled'; ?>" 
+                onclick="handleLoginClick(event, <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? 'true' : 'false'; ?>)">
+                    Cooking Tips
+            </a>
         </section>
 
         <!-- Features Section -->
@@ -113,5 +121,18 @@ session_start(); // Start the session
         <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
 
+
+    <!-- JavaScript -->
+    <script>
+        console.log("hello");
+        function handleLoginClick(event, isLoggedIn) {
+            console.log("hello");
+            // Check if the user is logged in
+            if (!isLoggedIn) {
+                alert('Please Log In First');  // Show the alert
+                event.preventDefault();  // Prevent the link from being followed
+            }
+        }
+    </script>
 </body>
 </html>
