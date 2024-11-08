@@ -122,6 +122,7 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-right: 5px;
+    margin-bottom: 15px;
 }
 
 .tips-btn {
@@ -134,6 +135,7 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-left: 5px;
+    margin-bottom: 15px;
 }
 
 .explore-btn:hover {
@@ -151,6 +153,22 @@ main {
 
 .explore-btn.disabled:hover, .tips-btn.disabled:hover {
     background-color: var(--primary-color);
+}
+
+.error-message {
+    opacity: 0;
+    font-size: larger;
+    font-weight: bold;
+    color: red; /* Error message color */
+    margin: 10px 0; /* Space around message */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* For fade-up effect */
+    transform: translateY(20px); /* Initial position for fade-up */
+}
+
+/* Visible class to trigger animation */
+.error-message.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move up */
 }
 
 /* Features section */

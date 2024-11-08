@@ -54,6 +54,8 @@ session_start(); // Start the session
                 onclick="handleLoginClick(event, <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? 'true' : 'false'; ?>)">
                     Cooking Tips
             </a>
+            <br>
+            <span id="login-message" class="error-message">Please Login First!</span>
         </section>
 
         <!-- Features Section -->
@@ -124,13 +126,16 @@ session_start(); // Start the session
 
     <!-- JavaScript -->
     <script>
-        console.log("hello");
         function handleLoginClick(event, isLoggedIn) {
-            console.log("hello");
-            // Check if the user is logged in
+            const loginMessage = document.getElementById("login-message");
+
             if (!isLoggedIn) {
-                alert('Please Log In First');  // Show the alert
+                // Display the message with animation if not logged in
+                loginMessage.classList.add("visible");  // Apply visible class to trigger fade-up
                 event.preventDefault();  // Prevent the link from being followed
+            } else {
+                // Hide the message if logged in and navigating
+                loginMessage.classList.remove("visible");
             }
         }
     </script>
