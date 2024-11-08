@@ -1,7 +1,6 @@
-// login.js
 $(document).ready(function() {
     $('#loginForm').submit(function(event) {
-        event.preventDefault(); // Prevent form submission for validation
+        event.preventDefault();
 
         let email = $('#email').val();
         let password = $('#password').val();
@@ -26,7 +25,7 @@ $(document).ready(function() {
         if (!valid) {
             $('.message').text(errorMessage).show();
         } else {
-            this.submit(); // Submit form if valid
+            this.submit();
         }
     });
 });

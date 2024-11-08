@@ -1,19 +1,16 @@
-/* Theme Colors */
 :root {
-    --background-color: black;     /* Background Color */
-    --primary-color: #3C3D37;     /* Accent Color for Navbar, Footer, Buttons */
-    --text-color: #EEEEEE;         /* Text Color */
+    --background-color: black;
+    --primary-color: #3C3D37;
+    --text-color: #EEEEEE;
 }
 
-/* Reset default styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Set global font family */
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Body and minimum height */
 body {
     background-color: var(--background-color);
     min-height: 100vh;
@@ -21,18 +18,16 @@ body {
     flex-direction: column;
 }
 
-/* Main content */
 main {
-    padding: 60px 30px; /* Remove right padding */
+    padding: 60px 30px;
     text-align: center;
-    flex-grow: 1; /* Allows main to expand */
+    flex-grow: 1;
     background-image: url("background.avif");
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center right; /* Aligns the image to the right */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
 }
 
-/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -40,25 +35,24 @@ main {
     padding: 25px 30px;
     background-color: var(--primary-color);
     color: var(--background-color);
-    height: 120px; /* Increased height */
+    height: 120px;
 }
 
 .navbar .nav-left h1 {
-    font-size: 28px; /* Desired size */
-    font-weight: bold; /* Bold title */
-    margin: 0; /* Remove default margin */
-    color: var(--background-color); /* Ensure color is set */
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--background-color);
 }
 
 .nav-right a {
     color: var(--background-color);
     text-decoration: none;
     margin-left: 25px;
-    font-size: 20px; /* Font size for navbar links */
-    font-weight: bold; /* Bold navbar links */
+    font-size: 20px;
+    font-weight: bold;
     position: relative;
-    transition: font-size 0.3s; /* Transition for hover effect */
-    /* transition: transform 0.3s; */
+    transition: font-size 0.3s;
 }
 
 .nav-right a:hover {
@@ -66,10 +60,9 @@ main {
 }
 
 .nav-right a.active {
-    border-bottom: 3px solid #000000; /* Underline for active link */
+    border-bottom: 3px solid #000000;
 }
 
-/* General Fade-In and Move-Up Animation */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -81,23 +74,19 @@ main {
     }
 }
 
-/* Apply the animation when the class is added dynamically */
 .animate-fade-up {
     opacity: 0;
-    transform: translateY(20px); /* Start from below */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate-fade-up.visible {
     opacity: 1;
-    transform: translateY(0); /* End position */
+    transform: translateY(0);
 }
 
-
-
-/* Intro section styling */
 .intro {
-    margin-bottom: 60px; /* Space before features section */
+    margin-bottom: 60px;
 }
 
 .intro h2 {
@@ -114,11 +103,11 @@ main {
 
 .explore-btn {
     display: inline-block;
-    padding: 13.75px 27.5px; /* Increased padding */
+    padding: 13.75px 27.5px;
     background-color: var(--primary-color);
     color: var(--text-color);
     text-decoration: none;
-    font-size: 22.5px; /* Increased font size */
+    font-size: 22.5px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-right: 5px;
@@ -127,11 +116,11 @@ main {
 
 .tips-btn {
     display: inline-block;
-    padding: 13.75px 27.5px; /* Increased padding */
+    padding: 13.75px 27.5px;
     background-color: var(--primary-color);
     color: var(--text-color);
     text-decoration: none;
-    font-size: 22.5px; /* Increased font size */
+    font-size: 22.5px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-left: 5px;
@@ -139,14 +128,13 @@ main {
 }
 
 .explore-btn:hover {
-    background-color: #30302C; /* Change on hover */
+    background-color: #30302C;
 }
 
 .tips-btn:hover {
-    background-color: #30302C; /* Change on hover */
+    background-color: #30302C;
 }
 
-/* Update the disabled class styling */
 .explore-btn.disabled, .tips-btn.disabled {
     opacity: 0.7;
 }
@@ -159,19 +147,17 @@ main {
     opacity: 0;
     font-size: larger;
     font-weight: bold;
-    color: red; /* Error message color */
-    margin: 10px 0; /* Space around message */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* For fade-up effect */
-    transform: translateY(20px); /* Initial position for fade-up */
+    color: red;
+    margin: 10px 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(20px);
 }
 
-/* Visible class to trigger animation */
 .error-message.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Move up */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Features section */
 .features {
     display: flex;
     flex-direction: column;
@@ -183,8 +169,8 @@ main {
     font-size: 28px;
     margin-bottom: 20px;
     color: var(--text-color);
-    width: 100%; /* Make title full width */
-    text-align: center; /* Center the title text */
+    width: 100%;
+    text-align: center;
 }
 
 .feature-items {
@@ -198,12 +184,11 @@ main {
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: 25px;
-    margin: 0 10px; /* Margin between items */
+    margin: 0 10px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* User Testimonials Section */
 .testimonials {
     margin: 60px 0;
 }
@@ -212,59 +197,58 @@ main {
     font-size: 28px;
     margin-bottom: 20px;
     color: var(--text-color);
-    text-align: center; /* Center the title */
+    text-align: center;
 }
 
 .testimonial-items {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px; /* Space between testimonial cards */
+    gap: 20px;
 }
 
 .card {
     background-color: var(--primary-color);
     border-radius: 8px;
-    width: 18rem; /* Fixed width for cards */
+    width: 18rem;
     height: 350px;
-    overflow: hidden; /* Ensures the image does not overflow */
+    overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s; /* Smooth transition effect */
+    transition: transform 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
 }
 
 .card-img-top {
-    width: 100%; /* Ensure image fills the card */
-    height: 200px; /* Fixed height for image */
-    object-fit: cover; /* Maintain aspect ratio */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .card-body {
-    padding: 15px; /* Padding inside the card */
+    padding: 15px;
 }
 
 .card-title {
-    font-size: 20px; /* Font size for the user name */
-    color: var(--text-color); /* Text color */
+    font-size: 20px;
+    color: var(--text-color);
 }
 
 .card-text {
-    font-size: 16px; /* Font size for the testimonial text */
-    color: var(--text-color); /* Text color */
-    margin-top: 10px; /* Space above testimonial text */
+    font-size: 16px;
+    color: var(--text-color);
+    margin-top: 10px;
 }
 
-/* Footer styling */
 footer {
     text-align: center;
     padding: 30px 0;
     background-color: var(--primary-color);
     color: var(--background-color);
     font-size: 18px;
-    height: 120px; /* Maintained height */
+    height: 120px;
 }
 
 .social-media {
@@ -276,6 +260,6 @@ footer {
 }
 
 .social-media img {
-    width: 30px; /* Placeholder size */
+    width: 30px;
     height: auto;
 }

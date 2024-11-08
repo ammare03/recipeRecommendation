@@ -2,22 +2,18 @@
 session_start();
 $message = '';
 
-// Database configuration
 $host = 'localhost';
 $port = 3309;
 $db = 'recipe_finder';
 $user = 'root';
 $pass = '';
 
-// Create connection
 $conn = new mysqli($host, $user, $pass, $db, $port);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Define regex patterns
 $emailPattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
 $passwordPattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/";
 
@@ -25,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate email and password
     if (empty($email) || empty($password)) {
         $message = 'Please fill in all fields.';
     } elseif (!preg_match($emailPattern, $email)) {
@@ -33,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($passwordPattern, $password)) {
         $message = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
     } else {
-        // Check if email already exists
         $checkEmailStmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $checkEmailStmt->bind_param("s", $email);
         $checkEmailStmt->execute();
@@ -42,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result->num_rows > 0) {
             $message = "A user with that email already exists. Change the email or please log in!";
         } else {
-            // If email is unique, proceed with registration
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
             $stmt->bind_param("ss", $email, $hashedPassword);
@@ -76,7 +69,6 @@ $conn->close();
     <script src="./scripts/register.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -112,7 +104,6 @@ $conn->close();
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
@@ -124,7 +115,6 @@ $conn->close();
 
     <script>
         $(document).ready(function() {
-            // Add the 'visible' class after page load to trigger the animation
             $('.register-container').addClass('visible');
         });
     </script>

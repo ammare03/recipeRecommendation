@@ -2,7 +2,6 @@
 session_start();
 $message = '';
 
-// Database configuration
 $host = 'localhost';
 $port = 3309;
 $db = 'recipe_finder';
@@ -11,7 +10,6 @@ $pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db, $port);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -22,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate email and password input
     if (empty($email) || empty($password)) {
         $message = 'Please fill in all fields.';
     } elseif (!preg_match($emailPattern, $email)) {
@@ -70,7 +67,6 @@ $conn->close();
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -87,7 +83,6 @@ $conn->close();
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
         <section class="login-container container">
             <h2>Login</h2>
@@ -107,7 +102,6 @@ $conn->close();
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
@@ -119,7 +113,6 @@ $conn->close();
 
     <script>
         $(document).ready(function() {
-            // Add the 'visible' class after page load to trigger the animation
             $('.login-container').addClass('visible');
         });
     </script>

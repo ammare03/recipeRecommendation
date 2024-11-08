@@ -1,19 +1,16 @@
-/* Theme Colors */
 :root {
-    --background-color: black;     /* Background Color */
-    --primary-color: #3C3D37;     /* Accent Color for Navbar, Footer, Buttons */
-    --text-color: #EEEEEE;         /* Text Color */
+    --background-color: black;
+    --primary-color: #3C3D37;
+    --text-color: #EEEEEE;
 }
 
-/* Reset default styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Set global font family */
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Body and minimum height */
 body {
     background-color: var(--background-color);
     min-height: 100vh;
@@ -21,18 +18,16 @@ body {
     flex-direction: column;
 }
 
-/* Main content */
 main {
-    padding: 60px 0 30px; /* Remove right padding */
+    padding: 60px 0 30px;
     text-align: center;
-    flex-grow: 1; /* Allows main to expand */
+    flex-grow: 1;
     background-image: url("background.avif");
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center right; /* Aligns the image to the right */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
 }
 
-/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -40,25 +35,24 @@ main {
     padding: 25px 30px;
     background-color: var(--primary-color);
     color: var(--background-color);
-    height: 120px; /* Increased height */
+    height: 120px;
 }
 
 .navbar .nav-left h1 {
-    font-size: 28px; /* Desired size */
-    font-weight: bold; /* Bold title */
-    margin: 0; /* Remove default margin */
-    color: var(--background-color); /* Ensure color is set */
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--background-color);
 }
 
 .nav-right a {
     color: var(--background-color);
     margin-left: 25px;
-    font-size: 20px; /* Font size for navbar links */
-    font-weight: bold; /* Bold navbar links */
+    font-size: 20px;
+    font-weight: bold;
     position: relative;
-    transition: font-size 0.3s; /* Transition for hover effect */
+    transition: font-size 0.3s;
     text-decoration: none;
-    /* transition: transform 0.3s; */
 }
 
 .nav-right a:hover {
@@ -67,125 +61,113 @@ main {
 }
 
 .nav-right a.active {
-    border-bottom: 3px solid #000000; /* Underline for active link */
+    border-bottom: 3px solid #000000;
 }
 
-/* Page Load Animation */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(20px); /* Starts from below */
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Ends in normal position */
+        transform: translateY(0);
     }
 }
 
-/* Initially hidden state for the login container */
 .register-container {
-    opacity: 0;  /* Initially hidden */
-    transform: translateY(20px); /* Starts from below */
-    animation: fadeInUp 1s ease-out forwards; /* Apply the fadeInUp animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Ensure the form is visible after animation */
 .register-container.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Register container styling */
 .register-container {
-    margin: 5px auto; /* Centered with auto margins */
-    max-width: 400px; /* Fixed max-width for the form */
+    margin: 5px auto;
+    max-width: 400px;
     padding: 20px;
     border-radius: 8px;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
 
-/* Heading styles */
 .register-container h2 {
-    font-size: 28px; /* Consistent heading size */
-    margin-bottom: 20px; /* Space below heading */
+    font-size: 28px;
+    margin-bottom: 20px;
     color: var(--text-color);
 }
 
-/* Input group styles */
 .input-group {
-    margin-bottom: 15px; /* Space between input fields */
+    margin-bottom: 15px;
 }
 
-/* Label styles */
 label {
-    display: block; /* Display as block for full width */
-    margin-bottom: 5px; /* Space below labels */
-    font-weight: bold; /* Bold labels */
-    color: var(--text-color); /* Ensures labels are legible */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
 }
 
-/* Input field styles */
 input[type="email"],
 input[type="password"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside input */
-    border-radius: 8px; /* Rounded corners */
-    border: 3px solid black; /* Green border */
-    color: var(--background-color); /* Text color */
-    font-weight: bold; /* Make text bold */
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 3px solid black;
+    color: var(--background-color);
+    font-weight: bold;
     margin-bottom: 15px;
 }
 
 .input-group input:focus {
-    border-color: var(--primary-color); /* Focus border color */
+    border-color: var(--primary-color);
 }
 
-/* Button styles */
 .register-btn {
-    padding: 10px 20px; /* Padding for button */
-    background-color: var(--primary-color); /* Use primary color for buttons */
+    padding: 10px 20px;
+    background-color: var(--primary-color);
     color: var(--text-color);
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size for button */
-    width: 100%; /* Make buttons equal size */
-    transition: background-color 0.3s ease; /* Transition for hover effect */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .register-btn:hover {
-    background-color: #30302C; /* Darker shade on hover */
+    background-color: #30302C;
 }
 
-/* Message styling */
 .message {
     font-weight: bold;
-    color: red; /* Error message color */
-    margin: 10px 0; /* Space around message */
+    color: red;
+    margin: 10px 0;
 }
 
 .login-message {
     color: var(--text-color);
 }
 
-/* Link styling */
 a {
-    color: var(--text-color); /* Primary color for links */
-    text-decoration: none; /* No underline */
+    color: var(--text-color);
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Underline on hover for better UX */
+    text-decoration: underline;
 }
 
-/* Footer styling */
 footer {
     text-align: center;
     padding: 30px 0;
     background-color: var(--primary-color);
     color: var(--background-color);
     font-size: 18px;
-    height: 120px; /* Maintained height */
+    height: 120px;
 }
 
 .social-media {
@@ -197,6 +179,6 @@ footer {
 }
 
 .social-media img {
-    width: 30px; /* Placeholder size */
+    width: 30px;
     height: auto;
 }

@@ -1,19 +1,16 @@
-/* Theme Colors */
 :root {
-    --background-color: black;       /* Background Color */
-    --primary-color: #3C3D37;        /* Accent Color for Navbar, Footer, Buttons */
-    --text-color: #EEEEEE;           /* Text Color */
+    --background-color: black;
+    --primary-color: #3C3D37;
+    --text-color: #EEEEEE;
 }
 
-/* Reset default styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Set global font family */
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Body and minimum height */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -22,7 +19,6 @@ body {
     flex-direction: column;
 }
 
-/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,24 +26,24 @@ body {
     padding: 25px 30px;
     background-color: var(--primary-color);
     color: var(--background-color);
-    height: 120px; /* Increased height */
+    height: 120px;
 }
 
 .navbar .nav-left h1 {
-    font-size: 28px; /* Desired size */
-    font-weight: bold; /* Bold title */
-    margin: 0; /* Remove default margin */
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
     color: var(--background-color);
 }
 
 .nav-right a {
-    color: var(--background-color); /* Navbar link color */
+    color: var(--background-color);
     text-decoration: none;
     margin-left: 25px;
-    font-size: 20px; /* Font size for navbar links */
-    font-weight: bold; /* Bold navbar links */
+    font-size: 20px;
+    font-weight: bold;
     position: relative;
-    transition: font-size 0.3s; /* Transition for hover effect */
+    transition: font-size 0.3s;
 }
 
 .nav-right a:hover {
@@ -55,45 +51,41 @@ body {
 }
 
 .nav-right a.active {
-    border-bottom: 3px solid var(--text-color); /* Underline for active link */
+    border-bottom: 3px solid var(--text-color);
 }
 
-/* Page Load Animation */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(20px); /* Starts from below */
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Ends in normal position */
+        transform: translateY(0);
     }
 }
 
-/* Initially hidden state for the login container */
 .tips-container {
-    opacity: 0;  /* Initially hidden */
-    transform: translateY(20px); /* Starts from below */
-    animation: fadeInUp 1s ease-out forwards; /* Apply the fadeInUp animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Ensure the form is visible after animation */
 .tips-container.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-
 .login-container {
-    margin: 5px auto; /* Centered with auto margins */
-    max-width: 400px; /* Fixed max-width for the form */
+    margin: 5px auto;
+    max-width: 400px;
     padding: 20px;
     border-radius: 8px;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
-/* Main section background and container styling */
+
 .tips-section {
-    background-image: url('./background.avif'); /* Add a background image here */
+    background-image: url('./background.avif');
     background-size: cover;
     background-position: center;
     padding: 50px 20px;
@@ -104,7 +96,7 @@ body {
 .tips-container h2 {
     font-size: 2.5em;
     font-weight: 700;
-    color: var(--text-color); /* Heading color */
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 
@@ -112,10 +104,9 @@ body {
     font-size: 1.1em;
     max-width: 600px;
     margin: 0 auto 40px;
-    color: var(--text-color); /* Paragraph color */
+    color: var(--text-color);
 }
 
-/* Tips card grid styling */
 .tips-cards {
     display: flex;
     flex-wrap: wrap;
@@ -123,7 +114,6 @@ body {
     justify-content: center;
 }
 
-/* Individual tip card styles */
 .tip-card {
     background-color: rgba(255, 255, 255, 0.9);
     width: 200px;
@@ -133,9 +123,9 @@ body {
     overflow: hidden;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease;
-    display: flex; /* Ensures the card content is aligned */
-    align-items: center; /* Centers content vertically */
-    justify-content: center; /* Centers content horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tip-card:hover {
@@ -148,22 +138,22 @@ body {
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    align-items: center; /* Vertically center the content */
-    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    justify-content: center;
     padding: 15px;
     font-weight: 500;
     font-size: 1em;
 }
 
 .tip-front {
-    background-color: var(--primary-color); /* Front card color */
-    color: var(--background-color); /* Front card text color */
+    background-color: var(--primary-color);
+    color: var(--background-color);
     border-radius: 8px 8px 0 0;
 }
 
 .tip-back {
-    background-color: var(--background-color); /* Back card color */
-    color: var(--text-color); /* Back card text color */
+    background-color: var(--background-color);
+    color: var(--text-color);
     transform: rotateY(180deg);
     font-size: 0.95em;
 }
@@ -176,14 +166,13 @@ body {
     transform: rotateY(0deg);
 }
 
-/* Footer styling */
 footer {
     text-align: center;
     padding: 30px 0;
-    background-color: var(--primary-color); /* Footer background */
-    color: var(--background-color); /* Footer text color */
+    background-color: var(--primary-color);
+    color: var(--background-color);
     font-size: 18px;
-    height: 120px; /* Maintained height */
+    height: 120px;
 }
 
 .social-media {
@@ -195,6 +184,6 @@ footer {
 }
 
 .social-media img {
-    width: 30px; /* Placeholder size */
+    width: 30px;
     height: auto;
 }

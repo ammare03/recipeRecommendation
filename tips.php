@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +10,12 @@ session_start(); // Start the session
     <title>Cooking Tips - Recipe Finder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/tips.css">
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -37,7 +36,6 @@ session_start(); // Start the session
         </div>
     </nav>
 
-    <!-- Cooking Tips Main Section -->
     <main class="tips-section">
         <div class="tips-container">
             <h2>Cooking Tips</h2>
@@ -75,12 +73,10 @@ session_start(); // Start the session
                         <p>To get the best flavor, taste your food as you go and adjust seasonings accordingly. This will help you create balanced, flavorful dishes.</p>
                     </div>
                 </div>
-                <!-- Additional tips can be added here following the same structure -->
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
@@ -92,7 +88,6 @@ session_start(); // Start the session
 
     <script>
         $(document).ready(function() {
-            // Add the 'visible' class after page load to trigger the animation
             $('.tips-container').addClass('visible');
         });
     </script>

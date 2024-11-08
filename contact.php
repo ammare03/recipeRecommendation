@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-// Check if the user is logged in
 $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
-
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +16,6 @@ $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
     <link rel="stylesheet" href="./styles/contact.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -49,7 +46,6 @@ $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
@@ -61,7 +57,6 @@ $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : '';
 
     <script>
         $(document).ready(function() {
-            // Add the 'visible' class after page load to trigger the animation
             $('.contact-container').addClass('visible');
         });
     </script>

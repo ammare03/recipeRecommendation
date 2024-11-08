@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,6 @@ session_start(); // Start the session
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -36,16 +35,12 @@ session_start(); // Start the session
         </div>
     </nav>
 
-
-    <!-- Main Content -->
     <main>
-        <!-- Website Description Section -->
         <section class="intro container animate-fade-up">
             <h2>Welcome to Recipe Finder</h2>
             <p>Your go-to solution for discovering and sharing the best recipes based on your preferences and available ingredients. Explore, create, and share recipes with ease!</p>
             <p>With a user-friendly interface and a rich database of culinary delights, you'll never run out of ideas for your next meal. Whether you're a beginner or a seasoned chef, Recipe Finder is here to inspire your culinary journey.</p>
 
-            <!-- Updated buttons with both PHP and JavaScript -->
             <a href="recipes.php" class="explore-btn <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? '' : 'disabled'; ?>" 
                 onclick="handleLoginClick(event, <?php echo isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] ? 'true' : 'false'; ?>)">
                     Explore Recipes
@@ -58,7 +53,6 @@ session_start(); // Start the session
             <span id="login-message" class="error-message">Please Login First!</span>
         </section>
 
-        <!-- Features Section -->
         <section class="features animate-fade-up">
             <h2 class="features-title">Features</h2>
             <div class="feature-items">
@@ -77,7 +71,6 @@ session_start(); // Start the session
             </div>
         </section>
 
-        <!-- User Testimonials Section -->
         <section class="testimonials container animate-fade-up">
             <h2>What Our Users Say</h2>
             <div class="testimonial-items">
@@ -113,7 +106,6 @@ session_start(); // Start the session
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
@@ -123,18 +115,14 @@ session_start(); // Start the session
         <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>
 
-
-    <!-- JavaScript -->
     <script>
         function handleLoginClick(event, isLoggedIn) {
             const loginMessage = document.getElementById("login-message");
 
             if (!isLoggedIn) {
-                // Display the message with animation if not logged in
-                loginMessage.classList.add("visible");  // Apply visible class to trigger fade-up
-                event.preventDefault();  // Prevent the link from being followed
+                loginMessage.classList.add("visible");
+                event.preventDefault();
             } else {
-                // Hide the message if logged in and navigating
                 loginMessage.classList.remove("visible");
             }
         }
@@ -144,7 +132,6 @@ session_start(); // Start the session
 
     <script>
         $(document).ready(function() {
-            // Function to check if an element is in the viewport
             function isInView(element) {
                 var elementTop = $(element).offset().top;
                 var elementBottom = elementTop + $(element).outerHeight();
@@ -153,19 +140,16 @@ session_start(); // Start the session
                 return elementBottom > viewportTop && elementTop < viewportBottom;
             }
 
-            // Function to animate elements that are in view
             function handleScroll() {
                 $('.animate-fade-up').each(function() {
                     if (isInView(this)) {
-                        $(this).addClass('visible'); // Add visible class to trigger animation
+                        $(this).addClass('visible');
                     }
                 });
             }
 
-            // Run the scroll handler once to check the elements when the page loads
             handleScroll();
 
-            // Bind the scroll event to handle animation while scrolling
             $(window).on('scroll', function() {
                 handleScroll();
             });

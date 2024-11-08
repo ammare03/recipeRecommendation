@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,6 @@ session_start(); // Start the session
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
             <h1>
@@ -37,7 +36,6 @@ session_start(); // Start the session
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
         <section class="explore-recipes container">
             <h2>Explore Recipes</h2>
@@ -50,41 +48,34 @@ session_start(); // Start the session
         
         <section class="results container" id="results">
             <h3>Available Recipes</h3>
-            <div id="recipeResults">
-                <!-- Dynamic recipe results and download button will be inserted here -->
-            </div>
+            <div id="recipeResults"></div>
         </section>
     </main>
 
     <script>
     $(document).ready(function() {
-        // Add the 'visible' class after page load to trigger the animation
         $('.explore-recipes').addClass('visible');
         $('#ingredientForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent the default form submission
+            e.preventDefault();
             
-            var ingredients = $('#ingredients').val(); // Get the input value
+            var ingredients = $('#ingredients').val();
             
-            // Make an AJAX request
             $.ajax({
-                url: 'fetch_recipes.php', // Your PHP file to handle the request
+                url: 'fetch_recipes.php',
                 type: 'POST',
-                data: { ingredients: ingredients }, // Send the ingredients
+                data: { ingredients: ingredients },
                 success: function(response) {
-                    $('#recipeResults').html(response); // Update the recipe results
+                    $('#recipeResults').html(response);
 
-                    // Smooth scroll to the recipe results section
                     $('html, body').animate({
                         scrollTop: $('#results').offset().top
-                    }, 1000); // 1000ms for smooth scroll
+                    }, 1000);
 
-                    // Wait for the scroll to complete before triggering the recipe animation
                     setTimeout(function() {
-                        // Once the page scrolls to the recipes section, apply animation
                         $('.recipe-item').each(function(index) {
                             $(this).addClass('loaded');
                         });
-                    }, 400); // Wait for 1 second before applying the animation (to match the scroll time)
+                    }, 400);
                 },
                 error: function() {
                     $('#recipeResults').html('<p>An error occurred while fetching recipes.</p>');
@@ -98,24 +89,19 @@ session_start(); // Start the session
             const cookingTime = $(this).data('cooking-time');
             const servings = $(this).data('servings');
             
-            // Format the content for the text file
             const textContent = `Recipe: ${recipeName}\n\nInstructions: ${instructions}\n\nCooking Time: ${cookingTime} minutes\nServings: ${servings}`;
 
-            // Create a Blob from the text content
             const blob = new Blob([textContent], { type: 'text/plain' });
 
-            // Create a download link
             const downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = `${recipeName}.txt`; // Set filename as recipe name
+            downloadLink.download = `${recipeName}.txt`;
 
-            // Trigger the download
             downloadLink.click();
         });
     });
     </script>
 
-    <!-- Footer -->
     <footer>
         <div class="social-media">
             <a href="#"><img src="./res/svg/instagram.svg" alt="Instagram"></a>
