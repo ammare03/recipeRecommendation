@@ -65,7 +65,7 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./scripts/login.js"></script>
 </head>
-<body>
+<body class="element">
 
     <nav class="navbar">
         <div class="nav-left">

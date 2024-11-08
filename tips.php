@@ -14,8 +14,7 @@ session_start();
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/tips.css">
 </head>
-<body>
-
+<body class="element">
     <nav class="navbar">
         <div class="nav-left">
             <h1>
